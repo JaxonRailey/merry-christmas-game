@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Doppio+One&family=Nanum+Pen+Script&display=swap');
 
 @font-face {
-    font-family: 'Doppio One';
+    font-family: 'Doppio One Local';
     src: url('../font/DoppioOne.ttf');
 }
 
 @font-face {
-  font-family: 'Nanum Pen Script';
-  src: url('../font/NanumPenScript.ttf');
+    font-family: 'Nanum Pen Script Local';
+    src: url('../font/NanumPenScript.ttf');
 }
 
 * {
@@ -23,7 +23,7 @@ body {
     min-height: 100vh;
     width: 100vw;
     color: white;
-    font-family: 'Doppio One';
+    font-family: 'Doppio One', 'Doppio One Local';
     background-image: url('../img/background.jpg');
     background-size: cover;
     overflow-x: hidden;
@@ -82,7 +82,7 @@ main {
 
 .intro p {
     font-size: 26px;
-    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Nanum Pen Script', 'Nanum Pen Script Local', cursive;
     letter-spacing: 0.5px;
     font-weight: 500;
     line-height: 32px;
@@ -105,7 +105,7 @@ main {
     position: fixed;
     bottom: 20px;
     right: 30px;
-    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Nanum Pen Script', 'Nanum Pen Script Local', cursive;
     font-size: 36px;
     color: #FFF;
     z-index: 3;
@@ -114,7 +114,7 @@ main {
 .final {
     position: fixed;
     bottom: 30px;
-    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Nanum Pen Script', 'Nanum Pen Script Local', cursive;
     font-size: 36px;
     color: #65B5D4;
     z-index: 3;
@@ -189,7 +189,7 @@ main {
 }
 
 .gift .numbers div {
-    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Nanum Pen Script', 'Nanum Pen Script Local', cursive;
     top: 30px;
     display: block;
     font-size: 32px;
