@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas Game Generator</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            align-items: center;
+            display: flex;
+        }
+
+        main {
+            text-align: center;
+            width: 100%;
+        }
+
+        input {
+            margin-bottom: 20px;
+            padding: 10px 40px 10px 10px;
+            border: 1px solid #dedede;
+            border-radius: 30px;
+            text-align: center;
+            outline: none;
+        }
+
+        button {
+            position: relative;
+            top: 1px;
+            right: 38px;
+            height: 30px;
+            width: 30px;
+            border-radius: 100%;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            line-height: 20px;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <input type="text" placeholder="Inserisci il nome">
+        <button>✓</button>
+        <a target="_blank">&nbsp;</a>
+    </main>
+    <script>
+
+        let name    = null;
+        let encoded = null;
+        let fullurl = null;
+        let baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/';
+
+        document.querySelector('[type="text"]').addEventListener('keyup', () => {
+            name    = document.querySelector('[type="text"]').value;
+            encoded = window.btoa(name);
+            fullurl = baseUrl + '?u=' + encoded;
+            document.querySelector('a').innerHTML = fullurl;
+            document.querySelector('a').href      = fullurl;
+        });
+
+        document.querySelector('button').addEventListener('click', () => {
+            navigator.clipboard.writeText(fullurl);
+            alert('Copiato negli appunti ' + name);
+        });
+    </script>
+</body>
+</html>

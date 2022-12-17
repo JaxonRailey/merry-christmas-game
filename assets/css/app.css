@@ -1,0 +1,361 @@
+@font-face {
+    font-family: 'Doppio One';
+    src: url('../font/DoppioOne.ttf');
+}
+
+@font-face {
+  font-family: 'Nanum Pen Script';
+  src: url('../font/NanumPenScript.ttf');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    width: 100vw;
+    color: white;
+    font-family: 'Doppio One';
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+.hide {
+    display: none;
+}
+
+.intro {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.75);
+    height: 100vh;
+    width: 100vw;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    padding: 20px;
+}
+
+.intro * {
+    opacity: 0;
+}
+
+.intro[visible] * {
+    animation: fade-in 2.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.intro.active {
+    animation: fade-out 1s 1;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+}
+
+.intro h1 {
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    text-shadow: 0px 0px 15px #fff;
+}
+
+.intro p {
+    font-size: 26px;
+    font-family: 'Nanum Pen Script', cursive;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    line-height: 32px;
+    max-width: 400px;
+}
+
+.intro button {
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    background: transparent;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    color: #FFF;
+    margin-top: 26px;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px #FFF;
+}
+
+.intro .signature {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 36px;
+    color: #FFF;
+    z-index: 3;
+}
+
+.final {
+    position: fixed;
+    bottom: 30px;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 36px;
+    color: #65B5D4;
+    z-index: 3;
+    text-align: center;
+    width: 100%;
+    animation: fade-in 1.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.blank.active {
+    position: fixed;
+    background-color: #FFF;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    animation: fade-in 3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.blank.fade {
+    position: fixed;
+    background-color: #FFF;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    animation: fade-out 3s;
+    animation-fill-mode: forwards;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.christmas {
+    margin: 0 auto;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.snow {
+    font-size: 20px;
+    position: fixed;
+    top: -5vh;
+    transform: translateY(0);
+    transform : rotate(180deg);
+    animation: fall 7s linear forwards;
+    background-image: url('../img/snowflake.png');
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    filter: brightness(0) invert(1);
+}
+
+.gift {
+    position: relative;
+    animation-duration: 1.2s;
+    animation-iteration-count: 1;
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+.gift:not(.open) {
+    animation-name: shake;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.gift .numbers div {
+    font-family: 'Nanum Pen Script', cursive;
+    top: 30px;
+    display: block;
+    font-size: 32px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.gift img {
+    max-width: 270px;
+    width: 100%;
+}
+
+.gift .numbers {
+    position: absolute;
+    bottom: 24px;
+    width: 100%;
+    text-align: center;
+}
+
+.gift.open {
+    animation-name: shaking;
+}
+
+input[type="number"] {
+    background-color: #FFF;
+    resize: none;
+    width: 44px;
+    height: 44px;
+    font-size: 36px;
+    text-align: center;
+    border-radius: 5px;
+    font-family: inherit;
+    color: #2589BC;
+    margin: 5px;
+    box-shadow: 0px 5px rgba(0, 0, 0, 0.3);
+    border: 0;
+    outline: none;
+}
+
+input[type="number"]:disabled {
+    background-color: #CDECFF;
+}
+
+input[type="number"]::placeholder {
+    color: #2589BC;
+    opacity: 0.2;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+.hints {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hint {
+    display: flex;
+    flex-direction: column;
+    margin: 25px 20px 0;
+    align-items: center;
+}
+
+.hint .box {
+    width: fit-content;
+    font-size: 24px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    color: #FFF;
+    width: 85px;
+}
+
+.hint .text {
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.hint:nth-child(1) {
+    color: #3EC143;
+}
+
+.hint:nth-child(1) .box {
+    border: 1px solid #3EC143;
+}
+
+.hint:nth-child(1) .hint .text {
+    color: #3EC143;
+}
+
+.hint:nth-child(2) {
+    color: #DBEB37;
+}
+
+.hint:nth-child(2) .box {
+    border: 1px solid #DBEB37;
+}
+
+.hint:nth-child(2) .hint .text {
+    color: #DBEB37;
+}
+
+.hint:nth-child(3) {
+    color: #FFA200;
+}
+
+.hint:nth-child(3) .box {
+    border: 1px solid #FFA200;
+}
+
+.hint:nth-child(3) .hint .text {
+    color: #FFA200;
+}
+
+.hint:nth-child(4) {
+    color: #FF5E52;
+}
+
+.hint:nth-child(4) .box {
+    border: 1px solid #FF5E52;
+}
+
+.hint:nth-child(4) .hint .text {
+    color: #FF5E52;
+}
+
+@keyframes fade-out {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes fade-in {
+    0%   { opacity: 0; }
+    40%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fade-in-out {
+    0%   { opacity: 0; }
+    50%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes shaking {
+    0%   { transform: translateX(0); }
+    25%  { transform: translateY(-9px); }
+    35%  { transform: translateY(-9px) rotate(17deg); }
+    55%  { transform: translateY(-9px) rotate(-17deg); }
+    65%  { transform: translateY(-9px) rotate(17deg); }
+    75%  { transform: translateY(-9px) rotate(-17deg); }
+    100% { transform: translateY(0) rotate(0); }
+}
+
+@keyframes shake {
+    0%   { transform: translate(-0px, -0px) scale(1.02, 0.98); }
+    50%  { transform: translate(-0px, -4px) scale(1.00, 1.00); }
+    100% { transform: translate(-0px, -0px) scale(1.02, 0.98); }
+}
+
+@keyframes fall {
+  0%   { transform: translateY(-5vh); }
+  80%  { opacity: 1; }
+  90%  { opacity: 0.2; }
+  100% { transform: translateY(105vh); opacity: 0; }
+}

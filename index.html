@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C'è un regalo per te</title>
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://merry-christmas-game.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="C'è un regalo per te">
+    <meta property="og:description" content="Ma per essere sicuro che lo veda solamente tu, l'ho protetto con una combinazione. Segui gli indizi per ricostruire il codice di sblocco.">
+    <meta property="og:image" content="https://merry-christmas-game.netlify.app/assets/gift.png">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="https://merry-christmas-game.netlify.app/">
+    <meta property="twitter:url" content="https://merry-christmas-game.netlify.app/">
+    <meta name="twitter:title" content="C'è un regalo per te">
+    <meta name="twitter:description" content="Ma per essere sicuro che lo veda solamente tu, l'ho protetto con una combinazione. Segui gli indizi per ricostruire il codice di sblocco.">
+    <meta name="twitter:image" content="https://merry-christmas-game.netlify.app/assets/img/gift.png">
+
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/gift.png">
+</head>
+<body>
+    <div class="intro">
+        <h1>Ciao</h1>
+        <p>
+            C'e` un regalo per te, ma per essere sicuro che lo veda
+            solamente tu, l'ho protetto con una combinazione.
+            Osserva gli indizi per ricostruire il codice di sblocco.
+        </p>
+
+        <br>
+
+        <p>So che ci riuscirai :)</p>
+        <button>Ho capito</button>
+
+        <span class="signature">Loris</span>
+    </div>
+
+    <div class="blank"></div>
+
+    <main>
+        <div class="gift">
+            <img src="assets/img/gift.png">
+            <div class="numbers">
+                <div>Per te<br><span>&nbsp;</span></div>
+                <input type="number" placeholder="0">
+                <input type="number" placeholder="0">
+                <input type="number" placeholder="0">
+            </div>
+        </div>
+
+        <div class="hints">
+            <section class="hint">
+                <span class="box">0 0 0</span>
+                <span class="text">2 corrette ma<br />mal posizionate</span>
+            </section>
+
+            <section class="hint">
+                <span class="box">0 0 0</span>
+                <span class="text">1 corretta e<br />ben posizionata</span>
+            </section>
+
+            <section class="hint">
+                <span class="box">0 0 0</span>
+                <span class="text">1 corretta ma<br />mal posizionata</span>
+            </section>
+
+            <section class="hint">
+                <span class="box">0 0 0</span>
+                <span class="text">nessuna di<br />queste è corretta</span>
+            </section>
+        </div>
+
+        <div class="christmas hide"></div>
+    </main>
+
+    <script type="text/javascript" src="assets/js/lottie.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+</body>
+</html>
