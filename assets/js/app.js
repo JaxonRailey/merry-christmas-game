@@ -5,20 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let help      = 0;
     let snowing   = null;
+    let startTime = null;
+    let endTime   = null;
     let url       = window.location.search;
     let numbers   = $all('[type="number"]');
     let sound     = new Audio('assets/sound/win.mp3');
     let melody    = new Audio('assets/sound/christmas.mp3');
     let params    = new URLSearchParams(url);
     let name      = params.get('u');
-    let correct   = correctCode();
+    // let correct   = correctCode();
+    let correct   = [1, 2, 3];
     let wrong     = wrongNumbers(correct);
     let pos       = Math.floor(Math.random() * 2);
     let index     = Math.floor(Math.random() * 3);
     let first     = firstHint(correct, wrong, index, pos);
     let second    = secondHint(correct, wrong, index);
     let third     = thirdHint(correct, pos, index, first, second);
-
     let christmas = bodymovin.loadAnimation({
         container: $one('.christmas'),
         path: 'assets/js/christmas.json',
@@ -34,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // close intro
     $one('.intro button').addEventListener('click', () => {
         $one('.intro').classList.add('active');
+        $one('.intro.active').addEventListener('animationend', () => {
+           startTime = new Date();
+        });
     });
 
     // set name
@@ -55,6 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 $one('.gift').classList.add('open');
                 numbers.forEach(item => item.disabled = true);
                 sound.play();
+                endTime = new Date() - startTime;
+                let congrats = 'Complimenti';
+
+                if (name) {
+                    congrats += ' ' + name.charAt(0).toUpperCase() + name.slice(1);
+                }
+
+                congrats += '!!! Hai risolto la combinazione in ' + Math.round(endTime) / 1000 + ' secondi';
+                console.warn(congrats);
             }
         });
     })
@@ -86,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (++help === 3) {
                 $one('.gift').classList.add('open');
                 sound.play();
+                console.warn('Sono sicuro che ci riusciresti anche senza aiuto ;)');
             }
         }
     });
@@ -126,6 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
         signature.classList = 'final';
         signature.innerText = 'Buon Natale, da Loris';
         document.body.appendChild(signature);
+        console.log("%c\r\n  ____                              _   _           _             _          \r\n |  _ \\                            | \\ | |         | |           | |         \r\n | |_) |  _   _    ___    _ __     |  \\| |   __ _  | |_    __ _  | |   ___   \r\n |  _ <  | | | |  \/ _ \\  | \'_ \\    | . ` |  \/ _` | | __|  \/ _` | | |  \/ _ \\  \r\n | |_) | | |_| | | (_) | | | | |   | |\\  | | (_| | | |_  | (_| | | | |  __\/  \r\n |____\/   \\__,_|  \\___\/  |_| |_|   |_| \\_|  \\__,_|  \\__|  \\__,_| |_|  \\___|  \r\n                                                                             \r\n                                                                             \r\n              _             _                       _                        \r\n             | |           | |                     (_)                       \r\n           __| |   __ _    | |        ___    _ __   _   ___                  \r\n          \/ _` |  \/ _` |   | |       \/ _ \\  | \'__| | | \/ __|                 \r\n         | (_| | | (_| |   | |____  | (_) | | |    | | \\__ \\                 \r\n          \\__,_|  \\__,_|   |______|  \\___\/  |_|    |_| |___\/                 \r\n                                                                             \r\n                                                                             \r\n", 'color: #C21010');
+        console.warn('Link della repo:', 'https://github.com/JaxonRailey/merry-christmas-game');
     });
 });
 
