@@ -356,8 +356,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 @keyframes fall {
-  0%   { transform: translateY(-5vh); }
-  80%  { opacity: 1; }
-  90%  { opacity: 0.2; }
-  100% { transform: translateY(105vh); opacity: 0; }
+    0%   { transform: translateY(-5vh); }
+    80%  { opacity: 1; }
+    90%  { opacity: 0.2; }
+    100% { transform: translateY(105vh); opacity: 0; }
 }
